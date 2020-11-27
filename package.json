@@ -18,10 +18,27 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-browsersync": {}
     },
     "platforms": [
       "android"
     ]
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "bootstrap": "^4.5.3",
+    "cheerio": "^1.0.0-rc.3",
+    "cordova-browser": "^5.0.4",
+    "cordova-plugin-browsersync": "^1.1.0",
+    "csp-parse": "0.0.2",
+    "dev-ip": "^1.0.1",
+    "encodeurl": "^1.0.2",
+    "immutable": "^4.0.0-rc.12",
+    "is-number-like": "^1.0.8",
+    "lodash-node": "^3.10.2",
+    "ms": "^2.1.2",
+    "ncp": "^2.0.0",
+    "ua-parser-js": "^0.7.22"
   }
 }
