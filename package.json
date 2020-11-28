@@ -21,9 +21,7 @@
             "cordova-plugin-whitelist": {},
             "cordova-plugin-browsersync": {}
         },
-        "platforms": [
-            "android"
-        ]
+        "platforms": []
     },
     "dependencies": {
         "async": "^3.2.0",
