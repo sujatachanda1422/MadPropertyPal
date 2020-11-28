@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="../css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="home">
-            <a href="add-form.html">Add</a>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div class="title">
+        My Properties
+        <img class='trash-btn' src='../img/trash.png'></span>
+    </div>
+    <div id="home_list"></div>
+
+    <a href="add-form.html" class="add-btn">+</a>
+
+    <div class="modal" id="remove_all_property" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Remove all properties</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want to remove all your properties?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger delete-all-property-confirmation">Delete All</button>
+                </div>
+            </div>
         </div>
+    </div>
 
+    <script src="../cordova.js"></script>
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/service.js"></script>
+    <script src="../js/home.js"></script>
+</body>
 
-        <script src="../cordova.js"></script>
-        <script src="../js/home.js"></script>
-    </body>
 </html>

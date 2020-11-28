@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -16,44 +15,83 @@
 
 <body>
     <div class="add-form">
+        <div class="title">
+            <span class='back-btn'></span>
+            <span class='title-text'>Add Property</span>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <form class="needs-validation" novalidate>
                         <div class="form-group">
-                            <label>Property Name and Number</label>;
-                            <input type="text" class="form-control" required name='name'>
+                            <label>Property Name and Number</label>
+                            <input type="text" class="form-control property-item-name" required name='name'>
                             <div class="invalid-feedback">
-                                Please provide a valid city.
+                                Please provide a valid property name.
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Type</label>
-                            <input type="text" class="form-control" required name='type'>
+                            <select class="custom-select" required name='type'>
+                                <option value="Apartment">Apartment</option>
+                                <option value="House">House</option>
+                                <option value="Bungalow">Bungalow</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Lease Type</label>
-                            <input type="text" class="form-control" required name='lease'>
+                            <select class="custom-select" required name='lease'>
+                                <option value="Freehold">Freehold</option>
+                                <option value="Leasehold">Leasehold</option>
+                                <option value="Short let">Short let</option>
+                                <option value="Long let">Long let</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Location</label>
-                            <input type="text" class="form-control" name='location'>
+                            <input type="text" class="form-control" name='location' required>
+                            <div class="invalid-feedback">
+                                Please provide a valid location.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Number of Bedrooms</label>
-                            <input type="text" class="form-control" name='bedrooms'>
+                            <label>Bedrooms</label>
+                            <select class="custom-select" required name='bedrooms'>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label>Number of Bathrooms</label>
-                            <input type="text" class="form-control" name='bathroom'>
+                            <label>Bathrooms</label>
+                            <select class="custom-select" required name='bathroom'>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Size</label>
-                            <input type="text" class="form-control" name='size'>
+                            <input type="text" class="form-control" name='size' required>
+                            <div class="invalid-feedback">
+                                Please provide a valid size.
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Asking Price</label>
-                            <input type="text" class="form-control" name='price'>
+                            <input type="number" class="form-control" name='price' required>
+                            <div class="invalid-feedback">
+                                Please provide a valid price.
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Local Amenities</label>
@@ -61,11 +99,32 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <input type="textarea" class="form-control" name='desc'>
+                            <textarea class="form-control" name='desc' rows="2"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-danger delete-property">Delete</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="remove_property" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Remove property</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want to remove <span class="property-name"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger delete-property-confirmation">Delete Property</button>
                 </div>
             </div>
         </div>
@@ -76,6 +135,7 @@
     <script src="../lib/jquery-3.5.1.slim.min.js"></script>
     <script src="../lib/popper.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/service.js"></script>
     <script src="../js/add-form.js"></script>
 </body>
 
