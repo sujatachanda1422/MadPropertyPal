@@ -11,11 +11,7 @@ SQLiteStorageService = function() {
                 'CREATE TABLE IF NOT EXISTS property ' +
                 '(id, name, lease, type, location, bedrooms, bathroom, size, price, ameneties, desc)', [],
                 function(tx, res) {
-                    tx.executeSql('DELETE FROM property', [], function(tx, res) {
-                        deferred.resolve(service);
-                    }, function(tx, res) {
-                        deferred.reject('Error initializing database');
-                    });
+                    deferred.resolve(service);
                 },
                 function(tx, res) {
                     deferred.reject('Error initializing database');
